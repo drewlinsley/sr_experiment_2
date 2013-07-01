@@ -1,0 +1,21 @@
+  
+  This part of the experiment is split up into six sessions.
+
+  Preceding each session, you will receive an instruction of
+
+  either:
+
+			  Classify rooms by their OBJECTS
+
+			  or
+
+			  Classify rooms by their SPACE
+			
+
+  You must keep a session's instruction in mind while you make 
+ 
+  your classifications. 
+
+
+
+				Press a button to continue.  

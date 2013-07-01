@@ -1,0 +1,438 @@
+%#########################################################################
+%############################              ###############################
+%############################ Experiment 2 ###############################
+%############################              ###############################
+%#########################################################################
+%The first two unambiguous types will be populated with bathroom objects
+%and have volumes matched to 1) that subject?s judgment of the average
+%bathroom and 2) that subject?s neutral point between bathrooms and
+%kitchens.  The second two unambiguous types will be populated with kitchen
+%objects and be matched to the volume of 3) the neutral point and 4) the
+%subject?s judgments of the average kitchen.  The ambiguous scene type will
+%be rooms with floor areas at the neutral point between kitchens and
+%bathrooms, containing three not associated with either bathrooms or
+%kitchens and wavelet-scrambled to conceal their identity (Figure 6).
+%#########################################################################
+%#########################################################################
+%--- Timing math: 272 stim events + (3*6) for block instructions = 290 stim
+%--- 290 stim * 1.5 = 435 seconds; 435/3(TR) = 145 TRs/run
+%--- Tack on two localizer sequences at the end (156 TRs?)
+%#########################################################################
+%questions for sean --
+%splitting runs into blocks? should I generate smaller DB sequences or
+%split the big one into smaller blocks? this will make the first and last
+%blocks kind of bunk
+%--
+%todo: ensure joystick stuff works; make sure scanner trigger can skip out
+%of nulls; fix block structure; fix kitchen stims; make sure results are
+%properly saved, and db sequence iteration works
+%#########################################################################
+clear
+clc
+close all
+
+%--- Subject identification
+params.group_name = 'test';
+params.subject_number = 1;
+params.experiment_name = 'experiment_two';
+params.scannerBuild = 'off'; %0 = disable scanner controllers
+params.debug = 'on';
+params.instruction = 'on';
+params.repeat_instructions = 'off';
+%--- Study parameters
+%Variables
+params.max_runs = 8; %we'll do this many "runs" of the experiment. Should match up with # of DB sequences
+params.eventTime = 1.5; %1500 ms
+params.stimuliDuration = .150; %duration for each picture within pair
+params.noiseDuration = .080;
+params.subliminalCueDuration = 0.032;
+params.pairDelay = params.eventTime - (params.stimuliDuration...
+    + params.noiseDuration + params.subliminalCueDuration); %delay between pictures
+params.num_blocks = 6;
+params.pic_size = [400 400];
+params.max_stims_in_group = 300;
+params.crossDuration = params.eventTime; %null event
+params.CrossWidth = 15;
+params.font = 'Helvetica';
+% Set keys
+params.keyboard_device = 5; %could also be 7 when gamepad & trigger are plugged in; check with GetKeyboardIndices
+KbName('UnifyKeyNames');
+params.escapeKey = KbName('ESCAPE');
+switch params.scannerBuild
+    case 'on'
+        %--- Initialize Gamepad
+        numGamepads = Gamepad('GetNumGamepads'); %GetGamepadIndices
+        
+        params.trigger = 3;
+        ListenChar(2); %enable this
+    case 'off'
+        params.bathroom_response = KbName('9(');
+        params.kitchen_response = KbName('0)');
+        params.trigger = KbName('1!');
+end
+%write console output to "diary.txt"
+switch params.debug
+    case 'on'
+        diary on
+    case 'off'
+        diary off
+end
+%--- Directories
+directories.home_dir = '/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/';
+directories.pic_dir = '/Users/drewlinsley/Documents/Dropbox/SceneRater Resources/all_rendered_imgs/cropped';
+directories.fmri_dir = fullfile(directories.home_dir,'fmri_experiment');
+directories.instructions = fullfile(directories.fmri_dir,'instructions');
+directories.norming_dir = fullfile(directories.home_dir,'psychophysik_norming');
+directories.db_dir = fullfile(directories.norming_dir,'processed_dbs');
+directories.middle_dir = fullfile(directories.norming_dir,'fmri_midpoints');
+directories.out_dir = fullfile(directories.fmri_dir,'results');%save reaction times/responses/stim timing parameters
+if ~exist(directories.out_dir,'dir'),
+    mkdir(directories.out_dir);
+end
+%--- Check to see if record for this subject already exists
+params.curr_sub = sprintf('%s_%s_%i',params.experiment_name,params.group_name,params.subject_number);
+if exist(fullfile(directories.out_dir,strcat(params.curr_sub,'_results.mat')),'file')
+    %check if record exists here
+    load(fullfile(directories.out_dir,strcat(params.curr_sub,'_results.mat')))
+    params.curr_db_seq = numel(judgment_matrix(1,:)) + 1; %index of the current run
+    if params.curr_db_seq > params.max_runs
+        error('it seems this subject has already completed the task...')
+    end
+else
+    params.curr_db_seq = 1; %index of the current run
+end
+directories.out_file_name = fullfile(directories.out_dir,strcat(params.curr_sub,'_results.mat'));
+fprintf('\rRunning DB Sequence #%i\r',params.curr_db_seq)
+%--- Load preprocessed mats (average&neutral points/dbseq)
+loading_name = sprintf('%s_subs_%i',params.group_name,params.subject_number);
+load(fullfile(directories.middle_dir,strcat(loading_name,'.mat')))%load mid/neutral point mat
+load(fullfile(directories.db_dir,strcat(loading_name,'.mat')))%load db sequence matrix
+
+%--- Prepare images
+directories.kitchen_dir = fullfile(directories.pic_dir,'rendered','kis');
+directories.bathroom_dir = fullfile(directories.pic_dir,'rendered','brs');
+directories.oddball_dir = fullfile(directories.pic_dir,'scrambled','oddballs');
+
+%--- Fit stims to midpoints
+ki_idx = sub_average_kitchen:params.max_stims_in_group;
+br_idx = 1:sub_average_bathroom;
+neutral_idx = (sub_average_bathroom+1):(sub_average_kitchen-1);
+
+ki_append = @(x) fullfile(directories.kitchen_dir,sprintf('%i.jpg',x));
+br_append = @(x) fullfile(directories.bathroom_dir,sprintf('%i.jpg',x));
+oddball_append = @(x) fullfile(directories.oddball_dir,sprintf('%i.jpg',x));
+
+stims.average_ki_array = arrayfun(ki_append,ki_idx,'UniformOutput',false)';
+stims.average_br_array = arrayfun(br_append,br_idx,'UniformOutput',false)';
+stims.neutral_ki_array = arrayfun(ki_append,neutral_idx,'UniformOutput',false)';
+stims.neutral_br_array = arrayfun(br_append,neutral_idx,'UniformOutput',false)';
+stims.neutral_oddball_array = arrayfun(oddball_append,neutral_idx,'UniformOutput',false)';
+
+%--- Fit stims to midpoints
+
+this_seq = db_array(:,:,params.curr_db_seq); %set this dbseq aside
+stims.db_seq = cell(numel(this_seq),1); %initialize image holder
+
+shuffled_stims = Shuffle(stims.average_br_array); %shuffle average bathrooms
+shuffled_stims = shuffled_stims(1:numel(this_seq(this_seq==1))); %trim average bathrooms
+stims.db_seq(this_seq==1) = shuffled_stims; %set average bathrooms
+
+shuffled_stims = Shuffle(stims.neutral_br_array); %shuffle neutral bathrooms
+shuffled_stims = shuffled_stims(1:numel(this_seq(this_seq==2))); %trim neutral bathrooms
+stims.db_seq(this_seq==2) = shuffled_stims; %set neutral bathrooms
+
+shuffled_stims = Shuffle(stims.neutral_oddball_array); %shuffle oddballs
+shuffled_stims = shuffled_stims(1:numel(this_seq(this_seq==3))); %trim oddballs
+stims.db_seq(this_seq==3) = shuffled_stims; %set oddballs
+
+shuffled_stims = Shuffle(stims.neutral_ki_array); %shuffle neutral kitchens
+shuffled_stims = shuffled_stims(1:numel(this_seq(this_seq==4))); %trim neutral kitchens
+stims.db_seq(this_seq==4) = shuffled_stims; %set neutral kitchens
+
+shuffled_stims = Shuffle(stims.average_ki_array); %shuffle average kitchens
+shuffled_stims = shuffled_stims(1:numel(this_seq(this_seq==5))); %trim average kitchens
+stims.db_seq(this_seq==5) = shuffled_stims; %set average kitchens
+
+%--- Create index for object/global cuing
+stims.block_idx = Shuffle([zeros(params.num_blocks/2,1);ones(params.num_blocks/2,1)]);
+stims.block_instructions = cell(size(stims.block_idx));
+stims.block_instructions(stims.block_idx==0) = {'Classify rooms by their OBJECTS'};
+stims.block_instructions(stims.block_idx==1) = {'Classify rooms by their SPACE'};
+stims.cue = cell(size(stims.block_idx));
+stims.cue(stims.block_idx==0) = {'OBJECTS'};
+stims.cue(stims.block_idx==1) = {'SPACE'};
+
+%--- Load instructions
+%create cell struct with pointers to each instruction file
+instruction_files = dir(fullfile(directories.instructions,'instruction*'));
+instruction_files = {instruction_files(:).name}; %turn the struct into a cell array
+append_instruction_dir = @(x) fullfile(directories.instructions,x); %an anonymous function that adds the correct directory pointer to each instruction file name
+instruction_files = cellfun(append_instruction_dir,instruction_files,'UniformOutput',false); %cellfun applies the above anon function to each cell in the array
+
+%--- start of experiment
+fprintf('\r\r\r****************\rStarting up %s\rIf an error occurs, check %s for a saved catch file\r****************\r',params.experiment_name,directories.home_dir)
+
+try
+    %%%%%%%%%%%%%%%%%%%%%%%%
+    %--- generate song
+    whole_note = linspace(0,2,2500);
+    half_note=linspace(0,2,1250);
+    F_note = @(x) sin(174.61*pi*x);
+    E_note = @(x) sin(164.81*pi*x);
+%     D_note = @(x) sin(146.83*2*pi*x);
+%     A_note = @(x) sin(220*2*pi*x);
+    D_note = @(x) sin(146.83*4*pi*x);
+    A_note = @(x) sin(220*4*pi*x);
+    %object_sound = [A_note(whole_note),D_note(whole_note),E_note(half_note),F_note(half_note)];
+    object_sound = [A_note(half_note),D_note(half_note)];
+    object_sound = interpft(object_sound,numel(object_sound));
+    got_song('initialize');
+    %--- preload noise
+    stims.noise_array = generate_noise(params,stims);
+    %--- Initialize experiment and show instructions
+    stims.images = cell(size(stims.db_seq));
+    for idx = 1:numel(stims.db_seq),
+        if isempty(stims.db_seq{idx}),
+            stims.images{idx} = [];
+        else
+            stims.images{idx} = imread(stims.db_seq{idx});
+        end
+    end
+    judgments = nan(numel(stims.db_seq),1);%?
+    stim_timing = nan(numel(stims.db_seq),1);%?
+    noise_timing = nan(numel(stims.db_seq),1);%?
+    response_timing = nan(numel(stims.db_seq),1);%?
+    blank_timing = nan(numel(stims.db_seq),1);%?
+    block_idx = nan(numel(stims.db_seq),1);%?
+    subliminal_timing = nan(numel(stims.db_seq),1);%?
+    %Initialize experiment; Set up our displays and i/o
+    delete(instrfind)
+    Priority(1);
+    %com1 = serial('COM1','BaudRate',9600,'DataBits',8,'Parity','none','StopBits',1);
+    %fopen(com1);
+    AssertOpenGL;
+    Screen('Preference', 'SkipSyncTests', 2);
+    % find how many displays
+    screens = Screen('Screens');
+    screenNumber = max(screens);
+    % get black white, and gray color index
+    params.black = BlackIndex(screenNumber); %0
+    params.white = WhiteIndex(screenNumber); %255
+    params.gray= GrayIndex (screenNumber);
+    HideCursor;
+    [params.w, params.rect] = Screen('OpenWindow', screenNumber, params.gray, [],[], 2);
+    %--- Set up keyboard inputs
+    try
+    KbQueueCreate(params.keyboard_device);
+    catch kb_error
+        fprintf('\rTrying Fallback Keyboard Method\r')
+        KbQueueCreate
+    end
+    while KbCheck; end % Wait until all keys are released.
+    KbQueueStart(params.keyboard_device);
+    ListenChar(2)
+    params.centx = params.rect(3)/2;
+    params.centy = params.rect(4)/2;
+    if params.curr_db_seq > 1,
+        switch params.repeat_instructions,
+            case 'on'
+                stims.exp_status = fmri_initialize_experiment(params,instruction_files); %sets up display I/O, shows instructions; if there is an error, it will be output to "exp status"
+            case 'off'
+                fprintf('\rSkipping Instructions\r\r')
+                Screen('DrawLine', params.w, params.white, params.centx-params.CrossWidth, params.centy, params.centx+params.CrossWidth, params.centy, 10);
+                Screen('DrawLine', params.w, params.white, params.centx, params.centy-params.CrossWidth, params.centx, params.centy+params.CrossWidth, 10);
+                Screen(params.w, 'Flip');
+                while 1
+                    [ pressed, firstPress]=KbQueueCheck(params.keyboard_device);
+                    if pressed
+                        if firstPress(params.trigger),
+                            fprintf('\rStarting the Experiment')
+                            break
+                        elseif firstPress(params.escapeKey),
+                            Screen('CloseAll');
+                            ListenChar(0);
+                            KbQueueRelease(params.keyboard_device);
+                            break;
+                        end
+                    end
+                end
+            otherwise
+                error('fix params.repeat_instructions')
+        end
+    else
+        stims.exp_status = fmri_initialize_experiment(params,instruction_files); %sets up display I/O, shows instructions; if there is an error, it will be output to "exp status"
+    end
+    %--- Run experiment loop -- 1)stim 2)noise 3)category?
+    count = 1;
+    for b_idx = 1:params.num_blocks, %block-level loop
+        Screen('FillRect', params.w, params.gray);
+        Screen('TextFont', params.w, params.font);
+        Screen('TextSize', params.w, 48);
+        DrawFormattedText(params.w,stims.block_instructions{b_idx},'center','center',[params.white params.white params.white]);
+        Screen('Flip', params.w);
+        fixationload=tic;
+        got_song('play',object_sound);
+        while toc(fixationload)<params.crossDuration*2,
+            [ pressed, firstPress]=KbQueueCheck(params.keyboard_device);
+            if pressed
+                if firstPress(params.trigger),
+                    fprintf('\rScanner timing async')
+                    break
+                elseif firstPress(params.escapeKey),
+                    Screen('CloseAll');
+                    ListenChar(0);
+                    KbQueueRelease(params.keyboard_device);
+                    break;
+                end
+            end
+        end
+        for idx = 1:(numel(stims.db_seq)/params.num_blocks),
+            if isempty(stims.db_seq{count}),
+                %--- Show null fixation cross
+                fixationload=tic;
+                Screen('DrawLine', params.w, params.white, params.centx-params.CrossWidth, params.centy, params.centx+params.CrossWidth, params.centy, 10);
+                Screen('DrawLine', params.w, params.white, params.centx, params.centy-params.CrossWidth, params.centx, params.centy+params.CrossWidth, 10);
+                Screen(params.w, 'Flip');
+                loadTime=toc(fixationload);
+                blank_timing(count) = loadTime;
+                crossShowing=params.crossDuration-loadTime;
+                cross=tic;
+                while toc(cross)<crossShowing,
+                    [ pressed, firstPress]=KbQueueCheck(params.keyboard_device);
+                    if pressed
+                        if firstPress(params.trigger),
+                            fprintf('\rScanner timing async')
+                            break
+                        elseif firstPress(params.escapeKey),
+                            Screen('CloseAll');
+                            ListenChar(0);
+                            KbQueueRelease(params.keyboard_device);
+                            break;
+                        end
+                    end
+                end
+            else
+                %--- Draw subliminal cue
+                fixationload=tic;
+                Screen('FillRect', params.w, params.gray);
+                Screen('TextFont', params.w, params.font);
+                Screen('TextSize', params.w, 48);
+                DrawFormattedText(params.w,stims.cue{b_idx},'center','center',[params.white params.white params.white]);
+                Screen('Flip', params.w);
+                subliminal_timing(count) = toc(fixationload);
+                myshowing = params.subliminalCueDuration - subliminal_timing(count);
+                watch = tic;
+                while toc(watch)<myshowing,
+                end
+                %--- Draw image
+                thisload = tic;
+                tex=Screen('MakeTexture', params.w, stims.images{count});
+                Screen('DrawTexture', params.w, tex);
+                Screen('Flip', params.w);
+                loadTime = toc(thisload);
+                stim_timing(count) = loadTime;
+                myshowing = params.stimuliDuration - loadTime;
+                watch = tic;
+                while toc(watch)<myshowing,
+                end
+                Screen('Close',tex)
+                clear tex
+                %--- Draw noise
+                thisload = tic;
+                tex=Screen('MakeTexture', params.w, stims.noise_array{count});
+                Screen('DrawTexture', params.w, tex);
+                Screen('Flip', params.w);
+                loadTime = toc(thisload);
+                noise_timing(count) = loadTime;
+                myshowing = params.noiseDuration - loadTime;
+                watch = tic;
+                while toc(watch)<myshowing,
+                end
+                Screen('Close',tex)
+                clear tex
+                %--- Draw prompt
+                thisload = tic;
+                Screen('FillRect', params.w, params.gray);
+                Screen('TextFont', params.w, params.font);
+                Screen('TextSize', params.w, 30);
+                DrawFormattedText(params.w,'Bathroom or Kitchen?','center','center',[params.white params.white params.white]);
+                Screen('Flip', params.w);
+                loadTime = toc(thisload);
+                blank_timing(count) = loadTime;
+                myshowing = params.pairDelay - loadTime;
+                thisload = tic;
+                switch params.scannerBuild
+                    case 'on'
+                        buttons = [Gamepad('GetButton',1,1),Gamepad('GetButton',1,2)];
+                        while toc(thisload)<myshowing,
+                            [~, ~, keyCode] = KbCheck(-1);
+                            key_idx = find(keyCode);
+                            if any(buttons),
+                                response_timing(count) = toc(thisload);
+                            end
+                            if key_idx == params.trigger,
+                                fprintf('\rScanner timing async')
+                                break
+                            elseif key_idx == params.escapeKey,
+                                Screen('CloseAll');
+                                ListenChar(0);
+                                break
+                            end
+                        end
+                    case 'off'
+                        while toc(thisload)<myshowing,
+                            [ pressed, firstPress]=KbQueueCheck(params.keyboard_device);
+                            if pressed
+                                if firstPress(params.bathroom_response),
+                                    response_timing(count) = toc(thisload);
+                                    judgments(count) = 1;
+                                elseif firstPress(params.kitchen_response),
+                                    response_timing(count) = toc(thisload);
+                                    judgments(count) = 2;
+                                elseif firstPress(params.trigger),
+                                    fprintf('\rScanner timing async')
+                                    break
+                                elseif firstPress(params.escapeKey),
+                                    Screen('CloseAll');
+                                    ListenChar(0);
+                                    KbQueueRelease(params.keyboard_device);
+                                    break;
+                                end
+                            end
+                        end
+                end
+            end
+            count = count + 1;
+        end
+    end
+    if params.curr_db_seq == 1,
+        judgment_matrix = judgments;
+        stim_timing_matrix = stim_timing;
+        noise_timing_matrix = noise_timing;
+        response_timing_matrix = response_timing;
+        blank_timing_matrix = blank_timing;
+        block_idx_matrix = stims.block_idx;
+        subliminal_timing_matrix = subliminal_timing;
+    else
+        judgment_matrix(:,params.curr_db_seq) = judgments;
+        stim_timing_matrix(:,params.curr_db_seq) = stim_timing;
+        noise_timing_matrix(:,params.curr_db_seq) = noise_timing;
+        response_timing_matrix(:,params.curr_db_seq) = response_timing;
+        blank_timing_matrix(:,params.curr_db_seq) = blank_timing;
+        block_idx_matrix(:,params.curr_db_seq) = stims.block_idx;
+        subliminal_timing_matrix(:,params.curr_db_seq) = subliminal_timing;
+    end
+    save(directories.out_file_name,'judgment_matrix','stim_timing_matrix','noise_timing_matrix','response_timing_matrix','response_timing_matrix','blank_timing_matrix','block_idx_matrix','subliminal_timing_matrix')
+    Screen('CloseAll');
+    ListenChar(0)
+    KbQueueRelease(params.keyboard_device);
+    got_song('close');
+    fprintf('\r\r\r\r\r\r****************\rRun %i Completed\rResults and timing info saved to %s\r****************',params.curr_db_seq,directories.out_file_name)
+catch e
+    ListenChar(0);
+    KbQueueRelease(params.keyboard_device);
+    got_song('close');
+    throw(e)
+end
+
+

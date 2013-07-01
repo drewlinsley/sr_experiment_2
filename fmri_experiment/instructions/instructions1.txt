@@ -1,0 +1,24 @@
+  
+  In the following experiment, your task is to classify
+
+  images of rooms as either bathrooms or a kitchens. Since
+
+  images will quickly flash on and off screen, you must enter
+
+  your judgment of room category as soon as you see the 
+
+  image.
+
+
+  
+  Press the button under your index finger for "Bathroom"
+
+  or
+
+  Press the button under your middle finger for "Kitchen" 
+
+
+				
+				Press a button to continue.  
+				
+				
