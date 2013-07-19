@@ -1,91 +1,0 @@
-Running DB Sequence #1****************Starting up experiment_twoIf an error occurs, check /Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/ for a saved catch file****************PTB-INFO: Using specially modified PortAudio engine, based on offical version: PortAudio V19-devel WITH-DIM
-PsychPortAudio initialized. Will use CoreAudio for audio.
-
-
-PTB-INFO: This is Psychtoolbox-3 for Apple OS X, under Matlab 64-Bit (Version 3.0.10 - Build date: May 22 2013).
-PTB-INFO: Type 'PsychtoolboxVersion' for more detailed version information.
-PTB-INFO: Most parts of the Psychtoolbox distribution are licensed to you under terms of the MIT License, with
-PTB-INFO: some restrictions. See file 'License.txt' in the Psychtoolbox root folder for the exact licensing conditions.
-
-PTB-INFO: Deficient Apple OS/X 10.7 or later detected: Would use fragile CoreVideo timestamping as fallback,
-PTB-INFO: if beamposition timestamping would not work. Will try to use beamposition timestamping if possible.
-PTB-INFO: Installation of the PsychtoolboxKernelDriver is strongly recommended if you care about precise visual onset timestamping
-PTB-INFO: or timing. See 'help PsychtoolboxKernelDriver' for instructions.
-
-
-PTB-INFO: OpenGL-Renderer is NVIDIA Corporation :: NVIDIA GeForce 9400M OpenGL Engine :: 2.1 NVIDIA-7.32.12
-PTB-INFO: Renderer has 256 MB of VRAM and a maximum 231 MB of texture memory.
-PTB-INFO: VBL startline = 1080 , VBL Endline = -1
-PTB-INFO: Beamposition queries unsupported on this system. Will try to use kernel-level vbl interrupts as fallback.
-PTB-INFO: Measured monitor refresh interval from VBLsync = 0.000000 ms [inf Hz]. (0 valid samples taken, stddev=0.000000 ms.)
-PTB-INFO: Reported monitor refresh interval from operating system = 16.666662 ms [60.000015 Hz].
-PTB-INFO: Small deviations between reported values are normal and no reason to worry.
-PTB-INFO: All display tests and calibrations disabled. Assuming a refresh interval of 60.000015 Hz. Timing will be inaccurate!
-PTB-INFO: Support for fast OffscreenWindows enabled.
-theretheretherehereStarting the ExperimentPTB-INFO: New audio device with handle 0 opened as PortAudio stream:
-PTB-INFO: For 1 channels Playback: Audio subsystem is Core Audio, Audio device name is Built-in Output
-PTB-INFO: Real samplerate 8192.000000 Hz. Input latency 0.000000 msecs, Output latency 12.573242 msecs.
-Scanner timing asyncScanner timing asyncScanner timing asyncScanner timing asyncScanner timing asyncPTB-INFO: New audio device with handle 1 opened as PortAudio stream:
-PTB-INFO: For 1 channels Playback: Audio subsystem is Core Audio, Audio device name is Built-in Output
-PTB-INFO: Real samplerate 8192.000000 Hz. Input latency 0.000000 msecs, Output latency 12.573242 msecs.
-{Error using <a href="matlab:helpUtils.errorDocCallback('main', '/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/fmri_experiment/main.m', 528)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/fmri_experiment/main.m',528,0)">line 528</a>)
-Reference to non-existent field 'stimsPerNull'.
-} 
-sca
-
-
-WARNING: This session of your experiment was run by you with the setting Screen('Preference', 'SkipSyncTests', 2).
-WARNING: This means that some internal self-tests and calibrations were skipped. Your stimulus presentation timing
-WARNING: may have been wrong. This is fine for development and debugging of your experiment, but for running the real
-WARNING: study, please make sure to set Screen('Preference', 'SkipSyncTests', 0) for maximum accuracy and reliability.
-main
-Running DB Sequence #1****************Starting up experiment_twoIf an error occurs, check /Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/ for a saved catch file****************PsychPortAudio initialized. Will use CoreAudio for audio.
-
-
-PTB-INFO: This is Psychtoolbox-3 for Apple OS X, under Matlab 64-Bit (Version 3.0.10 - Build date: May 22 2013).
-PTB-INFO: Type 'PsychtoolboxVersion' for more detailed version information.
-PTB-INFO: Most parts of the Psychtoolbox distribution are licensed to you under terms of the MIT License, with
-PTB-INFO: some restrictions. See file 'License.txt' in the Psychtoolbox root folder for the exact licensing conditions.
-
-PTB-INFO: Deficient Apple OS/X 10.7 or later detected: Would use fragile CoreVideo timestamping as fallback,
-PTB-INFO: if beamposition timestamping would not work. Will try to use beamposition timestamping if possible.
-PTB-INFO: Installation of the PsychtoolboxKernelDriver is strongly recommended if you care about precise visual onset timestamping
-PTB-INFO: or timing. See 'help PsychtoolboxKernelDriver' for instructions.
-
-
-PTB-INFO: OpenGL-Renderer is NVIDIA Corporation :: NVIDIA GeForce 9400M OpenGL Engine :: 2.1 NVIDIA-7.32.12
-PTB-INFO: Renderer has 256 MB of VRAM and a maximum 231 MB of texture memory.
-PTB-INFO: VBL startline = 1080 , VBL Endline = -1
-PTB-INFO: Beamposition queries unsupported on this system. Will try to use kernel-level vbl interrupts as fallback.
-PTB-INFO: Measured monitor refresh interval from VBLsync = 0.000000 ms [inf Hz]. (0 valid samples taken, stddev=0.000000 ms.)
-PTB-INFO: Reported monitor refresh interval from operating system = 16.666662 ms [60.000015 Hz].
-PTB-INFO: Small deviations between reported values are normal and no reason to worry.
-PTB-INFO: All display tests and calibrations disabled. Assuming a refresh interval of 60.000015 Hz. Timing will be inaccurate!
-PTB-INFO: Support for fast OffscreenWindows enabled.
-theretheretherehereStarting the ExperimentPTB-INFO: New audio device with handle 1 opened as PortAudio stream:
-PTB-INFO: For 1 channels Playback: Audio subsystem is Core Audio, Audio device name is Built-in Output
-PTB-INFO: Real samplerate 8192.000000 Hz. Input latency 0.000000 msecs, Output latency 12.573242 msecs.
-Scanner timing asyncScanner timing asyncScanner timing asyncScanner timing asyncScanner timing asyncScanner timing asyncScanner timing asyncScanner timing async
-
-INFO: PTB's Screen('Flip', 10) command seems to have missed the requested stimulus presentation deadline
-INFO: a total of 4 times out of a total of 43 flips during this session.
-
-INFO: This number is fairly accurate (and indicative of real timing problems in your own code or your system)
-INFO: if you provided requested stimulus onset times with the 'when' argument of Screen('Flip', window [, when]);
-INFO: If you called Screen('Flip', window); without the 'when' argument, this count is more of a ''mild'' indicator
-INFO: of timing behaviour than a hard reliable measurement. Large numbers may indicate problems and should at least
-INFO: deserve your closer attention. Cfe. 'help SyncTrouble', the FAQ section at www.psychtoolbox.org and the
-INFO: examples in the PDF presentation in PsychDocumentation/Psychtoolbox3-Slides.pdf for more info and timing tips.
-
-
-
-WARNING: This session of your experiment was run by you with the setting Screen('Preference', 'SkipSyncTests', 2).
-WARNING: This means that some internal self-tests and calibrations were skipped. Your stimulus presentation timing
-WARNING: may have been wrong. This is fine for development and debugging of your experiment, but for running the real
-WARNING: study, please make sure to set Screen('Preference', 'SkipSyncTests', 0) for maximum accuracy and reliability.
-Error in function FillRect: 	Invalid Window (or Texture) Index provided: It doesn't correspond to an open window or texture.
-Did you close it accidentally via Screen('Close') or Screen('CloseAll') ?
-PTB-INFO: New audio device with handle 2 opened as PortAudio stream:
-PTB-INFO: For 1 channels Playback: Audio subsystem is Core Audio, Audio device name is Built-in Output
-PTB-INFO: Real samplerate 8192.000000 Hz. Input latency 0.000000 msecs, Output latency 12.573242 msecs.
-{Error using <a href="matlab:helpUtils.errorDocCallback('main', '/Users/drewlinsley/Documents/Dropbox/SR_gra
