@@ -1,903 +1,0 @@
-Running DB Sequence #1{Error using <a href="matlab:helpUtils.errorDocCallback('load')" style="font-weight:bold">load</a>
-Unable to read file
-'/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/fmri_midpoints/oddball_newsubs_3_subs_1.mat':
-no such file or directory.
-} 
-non_mturk_psychometric_curve
-Trimmed Data for RT excursions[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.  It
-may also be due to numerical underflow in the model function, which
-can sometimes be avoided by choosing better initial parameter
-values, or by rescaling or recentering.  Parameter estimates may be
-unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Iteration limit exceeded.  Returning results from final
-iteration.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',311,1)">nlinfit at 311</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720036e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.719959e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.
-It may also be due to numerical underflow in the model function,
-which can sometimes be avoided by choosing better initial
-parameter values, or by rescaling or recentering.  Parameter
-estimates may be unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  5.441679e-14.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.728528e-14.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  5.704429e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  2.432377e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.803899e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.728528e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720810e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720036e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.
-It may also be due to numerical underflow in the model function,
-which can sometimes be avoided by choosing better initial
-parameter values, or by rescaling or recentering.  Parameter
-estimates may be unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-***************Finished Analyzing Data***************Storing Midpoints***************Generating DBseqs for each subload(fullfile(directories.middle_dir,strcat(loading_name,'.mat')))%load mid/neutral point mat
-{Undefined variable "directories" or function
-"directories.middle_dir".
-} 
-non_mturk_psychometric_curve
-Trimmed Data for RT excursions[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.  It
-may also be due to numerical underflow in the model function, which
-can sometimes be avoided by choosing better initial parameter
-values, or by rescaling or recentering.  Parameter estimates may be
-unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Iteration limit exceeded.  Returning results from final
-iteration.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',311,1)">nlinfit at 311</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720036e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.719959e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.
-It may also be due to numerical underflow in the model function,
-which can sometimes be avoided by choosing better initial
-parameter values, or by rescaling or recentering.  Parameter
-estimates may be unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',359,1)">non_mturk_psychometric_curve at 359</a>] 
-[Warning: Rank deficient, rank = 2, tol =  5.441679e-14.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.728528e-14.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  5.704429e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  2.432377e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.803899e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.728528e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720810e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720036e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.
-It may also be due to numerical underflow in the model function,
-which can sometimes be avoided by choosing better initial
-parameter values, or by rescaling or recentering.  Parameter
-estimates may be unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-***************Finished Analyzing Data***************Storing Midpoints***************Generating DBseqs for each subnon_mturk_psychometric_curve
-Trimmed Data for RT excursions[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.  It
-may also be due to numerical underflow in the model function, which
-can sometimes be avoided by choosing better initial parameter
-values, or by rescaling or recentering.  Parameter estimates may be
-unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Iteration limit exceeded.  Returning results from final
-iteration.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',311,1)">nlinfit at 311</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720036e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.719959e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.
-It may also be due to numerical underflow in the model function,
-which can sometimes be avoided by choosing better initial
-parameter values, or by rescaling or recentering.  Parameter
-estimates may be unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  5.441679e-14.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.728528e-14.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  5.704429e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  2.432377e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.803899e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.728528e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720810e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720036e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.
-It may also be due to numerical underflow in the model function,
-which can sometimes be avoided by choosing better initial
-parameter values, or by rescaling or recentering.  Parameter
-estimates may be unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-***************Finished Analyzing Data***************Storing Midpoints***************Generating DBseqs for each sub***************Executing DB scripts for each sub72 sequences are running for oddball_newsubs_3main
-Running DB Sequence #1{Error using <a href="matlab:helpUtils.errorDocCallback('load')" style="font-weight:bold">load</a>
-Unable to read file
-'/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/fmri_midpoints/oddball_newsubs_3_subs_2.mat':
-no such file or directory.
-
-Error in <a href="matlab:helpUtils.errorDocCallback('main', '/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/fmri_experiment/main.m', 119)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/fmri_experiment/main.m',119,0)">line 119</a>)
-load(fullfile(directories.middle_dir,strcat(loading_name,'.mat')))%load
-mid/neutral point mat
-} 
-non_mturk_psychometric_curve
-Trimmed Data for RT excursions[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.  It
-may also be due to numerical underflow in the model function, which
-can sometimes be avoided by choosing better initial parameter
-values, or by rescaling or recentering.  Parameter estimates may be
-unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Iteration limit exceeded.  Returning results from final
-iteration.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',311,1)">nlinfit at 311</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720036e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.719959e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.
-It may also be due to numerical underflow in the model function,
-which can sometimes be avoided by choosing better initial
-parameter values, or by rescaling or recentering.  Parameter
-estimates may be unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',359,1)">non_mturk_psychometric_curve at 359</a>] 
-[Warning: Rank deficient, rank = 2, tol =  5.441679e-14.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.728528e-14.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  5.704429e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  2.432377e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.803899e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.728528e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720810e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720036e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.
-It may also be due to numerical underflow in the model function,
-which can sometimes be avoided by choosing better initial
-parameter values, or by rescaling or recentering.  Parameter
-estimates may be unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-***************Finished Analyzing Data***************Storing Midpoints***************Generating DBseqs for each sub***************Processing DBs{Index exceeds matrix dimensions.
-
-Error in <a href="matlab:helpUtils.errorDocCallback('process_db_scripts', '/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/exp_2_proc_fun/process_db_scripts.m', 36)" style="font-weight:bold">process_db_scripts</a> (<a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/exp_2_proc_fun/process_db_scripts.m',36,0)">line 36</a>)
-        fid =
-        fopen(fullfile(settings.out_dir,in_files(file_counter).name));
-        
-Error in <a href="matlab:helpUtils.errorDocCallback('non_mturk_psychometric_curve', '/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m', 482)" style="font-weight:bold">non_mturk_psychometric_curve</a> (<a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',482,0)">line 482</a>)
-            process_db_scripts(settings);
-} 
-non_mturk_psychometric_curve
-Trimmed Data for RT excursions[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.  It
-may also be due to numerical underflow in the model function, which
-can sometimes be avoided by choosing better initial parameter
-values, or by rescaling or recentering.  Parameter estimates may be
-unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Iteration limit exceeded.  Returning results from final
-iteration.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',311,1)">nlinfit at 311</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720036e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.719959e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.
-It may also be due to numerical underflow in the model function,
-which can sometimes be avoided by choosing better initial
-parameter values, or by rescaling or recentering.  Parameter
-estimates may be unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  5.441679e-14.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.728528e-14.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  5.704429e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  2.432377e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.803899e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.728528e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720810e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Rank deficient, rank = 2, tol =  1.720036e-15.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',549,1)">nlinfit>LMfit at 549</a>
-  In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',275,1)">nlinfit at 275</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: Some columns of the Jacobian are effectively zero at the
-solution, indicating that the model is insensitive to some of its
-parameters.  That may be because those parameters are not present
-in the model, or otherwise do not affect the predicted values.
-It may also be due to numerical underflow in the model function,
-which can sometimes be avoided by choosing better initial
-parameter values, or by rescaling or recentering.  Parameter
-estimates may be unreliable.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',348,1)">nlinfit at 348</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-[Warning: The Jacobian at the solution is ill-conditioned, and
-some model parameters may not be estimated well (they are not
-identifiable).  Use caution in making predictions.] 
-[> In <a href="matlab: opentoline('/Applications/MATLAB_R2013a.app/toolbox/stats/stats/nlinfit.m',351,1)">nlinfit at 351</a>
-  In <a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/non_mturk_psychometric_curve.m',352,1)">non_mturk_psychometric_curve at 352</a>] 
-***************Finished Analyzing Data***************Storing Midpoints***************Generating DBseqs for each sub***************Processing DBsmain
-Running DB Sequence #1{Error using <a href="matlab:helpUtils.errorDocCallback('load')" style="font-weight:bold">load</a>
-Unable to read file
-'/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/fmri_midpoints/oddball_newsubs_3_subs_2.mat':
-no such file or directory.
-
-Error in <a href="matlab:helpUtils.errorDocCallback('main', '/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/fmri_experiment/main.m', 119)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/fmri_experiment/main.m',119,0)">line 119</a>)
-load(fullfile(directories.middle_dir,strcat(loading_name,'.mat')))%load
-mid/neutral point mat
-} 
-main
-Running DB Sequence #1{Index exceeds matrix dimensions.
-
-Error in <a href="matlab:helpUtils.errorDocCallback('main', '/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/fmri_experiment/main.m', 148)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/fmri_experiment/main.m',148,0)">line 148</a>)
-shuffled_stims = shuffled_stims(1:numel(this_seq(this_seq==1)));
-%trim average bathrooms
-} 
-main
-Running DB Sequence #1stims.average_br_array
-
-ans = 
-
-   Empty cell array: 0-by-1
-
-directories.middle_dir,strcat(loading_name,'.mat'))
- directories.middle_dir,strcat(loading_name,'.mat'))
-                                                   |
-{Error: Unbalanced or unexpected parenthesis or bracket.
-} 
-directories.middle_dir,strcat(loading_name,'.mat')
-
-ans =
-
-/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/fmri_midpoints
-
-
-ans =
-
-oddball_newsubs_3_2.mat
-
-fullfile(directories.db_dir,strcat(loading_name,'.mat'))
-
-ans =
-
-/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/processed_dbs/oddball_newsubs_3_2.mat
-
-params.max_stims_in_group
-
-ans =
-
-   300
-
-main
-Running DB Sequence #1{Error using <a href="matlab:helpUtils.errorDocCallback('load')" style="font-weight:bold">load</a>
-Unable to read file
-'/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming/fmri_midpoints/oddball_newsubs_3_subs_2.mat':
-no such file or directory.
-
-Error in <a href="matlab:helpUtils.errorDocCallback('main', '/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/fmri_experiment/main.m', 119)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/fmri_experiment/main.m',119,0)">line 119</a>)
-load(fullfile(directories.middle_dir,strcat(loading_name,'.mat')))%load
-mid/neutral point mat
-} 
-main
-Running DB Sequence #1sub_average_kitchen:params.max_stims_in_group
-
-ans =
-
-  Columns 1 through 6
-
-    0.6334    1.6334    2.6334    3.6334    4.6334    5.6334
-
-  Columns 7 through 12
-
-    6.6334    7.6334    8.6334    9.6334   10.6334   11.6334
-
-  Columns 13 through 18
-
-   12.6334   13.6334   14.6334   15.6334   16.6334   17.6334
-
-  Columns 19 through 24
-
-   18.6334   19.6334   20.6334   21.6334   22.6334   23.6334
-
-  Columns 25 through 30
-
-   24.6334   25.6334   26.6334   27.6334   28.6334   29.6334
-
-  Columns 31 through 36
-
-   30.6334   31.6334   32.6334   33.6334   34.6334   35.6334
-
-  Columns 37 through 42
-
-   36.6334   37.6334   38.6334   39.6334   40.6334   41.6334
-
-  Columns 43 through 48
-
-   42.6334   43.6334   44.6334   45.6334   46.6334   47.6334
-
-  Columns 49 through 54
-
-   48.6334   49.6334   50.6334   51.6334   52.6334   53.6334
-
-  Columns 55 through 60
-
-   54.6334   55.6334   56.6334   57.6334   58.6334   59.6334
-
-  Columns 61 through 66
-
-   60.6334   61.6334   62.6334   63.6334   64.6334   65.6334
-
-  Columns 67 through 72
-
-   66.6334   67.6334   68.6334   69.6334   70.6334   71.6334
-
-  Columns 73 through 78
-
-   72.6334   73.6334   74.6334   75.6334   76.6334   77.6334
-
-  Columns 79 through 84
-
-   78.6334   79.6334   80.6334   81.6334   82.6334   83.6334
-
-  Columns 85 through 90
-
-   84.6334   85.6334   86.6334   87.6334   88.6334   89.6334
-
-  Columns 91 through 96
-
-   90.6334   91.6334   92.6334   93.6334   94.6334   95.6334
-
-  Columns 97 through 102
-
-   96.6334   97.6334   98.6334   99.6334  100.6334  101.6334
-
-  Columns 103 through 108
-
-  102.6334  103.6334  104.6334  105.6334  106.6334  107.6334
-
-  Columns 109 through 114
-
-  108.6334  109.6334  110.6334  111.6334  112.6334  113.6334
-
-  Columns 115 through 120
-
-  114.6334  115.6334  116.6334  117.6334  118.6334  119.6334
-
-  Columns 121 through 126
-
-  120.6334  121.6334  122.6334  123.6334  124.6334  125.6334
-
-  Columns 127 through 132
-
-  126.6334  127.6334  128.6334  129.6334  130.6334  131.6334
-
-  Columns 133 through 138
-
-  132.6334  133.6334  134.6334  135.6334  136.6334  137.6334
-
-  Columns 139 through 144
-
-  138.6334  139.6334  140.6334  141.6334  142.6334  143.6334
-
-  Columns 145 through 150
-
-  144.6334  145.6334  146.6334  147.6334  148.6334  149.6334
-
-  Columns 151 through 156
-
-  150.6334  151.6334  152.6334  153.6334  154.6334  155.6334
-
-  Columns 157 through 162
-
-  156.6334  157.6334  158.6334  159.6334  160.6334  161.6334
-
-  Columns 163 through 168
-
-  162.6334  163.6334  164.6334  165.6334  166.6334  167.6334
-
-  Columns 169 through 174
-
-  168.6334  169.6334  170.6334  171.6334  172.6334  173.6334
-
-  Columns 175 through 180
-
-  174.6334  175.6334  176.6334  177.6334  178.6334  179.6334
-
-  Columns 181 through 186
-
-  180.6334  181.6334  182.6334  183.6334  184.6334  185.6334
-
-  Columns 187 through 192
-
-  186.6334  187.6334  188.6334  189.6334  190.6334  191.6334
-
-  Columns 193 through 198
-
-  192.6334  193.6334  194.6334  195.6334  196.6334  197.6334
-
-  Columns 199 through 204
-
-  198.6334  199.6334  200.6334  201.6334  202.6334  203.6334
-
-  Columns 205 through 210
-
-  204.6334  205.6334  206.6334  207.6334  208.6334  209.6334
-
-  Columns 211 through 216
-
-  210.6334  211.6334  212.6334  213.6334  214.6334  215.6334
-
-  Columns 217 through 222
-
-  216.6334  217.6334  218.6334  219.6334  220.6334  221.6334
-
-  Columns 223 through 228
-
-  222.6334  223.6334  224.6334  225.6334  226.6334  227.6334
-
-  Columns 229 through 234
-
-  228.6334  229.6334  230.6334  231.6334  232.6334  233.6334
-
-  Columns 235 through 240
-
-  234.6334  235.6334  236.6334  237.6334  238.6334  239.6334
-
-  Columns 241 through 246
-
-  240.6334  241.6334  242.6334  243.6334  244.6334  245.6334
-
-  Columns 247 through 252
-
-  246.6334  247.6334  248.6334  249.6334  250.6334  251.6334
-
-  Columns 253 through 258
-
-  252.6334  253.6334  254.6334  255.6334  256.6334  257.6334
-
-  Columns 259 through 264
-
-  258.6334  259.6334  260.6334  261.6334  262.6334  263.6334
-
-  Columns 265 through 270
-
-  264.6334  265.6334  266.6334  267.6334  268.6334  269.6334
-
-  Columns 271 through 276
-
-  270.6334  271.6334  272.6334  273.6334  274.6334  275.6334
-
-  Columns 277 through 282
-
-  276.6334  277.6334  278.6334  279.6334  280.6334  281.6334
-
-  Columns 283 through 288
-
-  282.6334  283.6334  284.6334  285.6334  286.6334  287.6334
-
-  Columns 289 through 294
-
-  288.6334  289.6334  290.6334  291.6334  292.6334  293.6334
-
-  Columns 295 through 300
-
-  294.6334  295.6334  296.6334  297.6334  298.6334  299.6334
-
-ki_idx = round(params.max_stims_in_group*sub_average_kitchen):params.max_stims_in_group; %high ind is min kitchen index : max iages
-ki_idx
-
-ki_idx =
-
-  Columns 1 through 10
-
-   190   191   192   193   194   195   196   197   198   199
-
-  Columns 11 through 20
-
-   200   201   202   203   204   205   206   207   208   209
-
-  Columns 21 through 30
-
-   210   211   212   213   214   215   216   217   218   219
-
-  Columns 31 through 40
-
-   220   221   222   223   224   225   226   227   228   229
-
-  Columns 41 through 50
-
-   230   231   232   233   234   235   236   237   238   239
-
-  Columns 51 through 60
-
-   240   241   242   243   244   245   246   247   248   249
-
-  Columns 61 through 70
-
-   250   251   252   253   254   255   256   257   258   259
-
-  Columns 71 through 80
-
-   260   261   262   263   264   265   266   267   268   269
-
-  Columns 81 through 90
-
-   270   271   272   273   274   275   276   277   278   279
-
-  Columns 91 through 100
-
-   280   281   282   283   284   285   286   287   288   289
-
-  Columns 101 through 110
-
-   290   291   292   293   294   295   296   297   298   299
-
-  Column 111
-
-   300
-
-ki_idx = round(params.max_stims_in_group*sub_average_kitchen):params.max_stims_in_group; %high ind is min kitchen index : max iages
-br_idx = 1:round(params.max_stims_in_group*sub_average_bathroom); %low ind is the first image : max bathroom index
-neutral_idx = (round(params.max_stims_in_group*sub_average_bathroom)+1):...
-    (round(params.max_stims_in_group*sub_average_kitchen)-1); %neutral images are the filling
-main
-Running DB Sequence #1****************Starting up experiment_twoIf an error occurs, check /Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/ for a saved catch file****************PTB-INFO: Using specially modified PortAudio engine, based on offical version: PortAudio V19-devel WITH-DIM
-PsychPortAudio initialized. Will use CoreAudio for audio.
-
-
-PTB-INFO: This is Psychtoolbox-3 for Apple OS X, under Matlab 64-Bit (Version 3.0.10 - Build date: May 22 2013).
-PTB-INFO: Type 'PsychtoolboxVersion' for more detailed version information.
-PTB-INFO: Most parts of the Psychtoolbox distribution are licensed to you under terms of the MIT License, with
-PTB-INFO: some restrictions. See file 'License.txt' in the Psychtoolbox root folder for the exact licensing conditions.
-
-PTB-INFO: Deficient Apple OS/X 10.7 or later detected: Would use fragile CoreVideo timestamping as fallback,
-PTB-INFO: if beamposition timestamping would not work. Will try to use beamposition timestamping if possible.
-PTB-INFO: Installation of the PsychtoolboxKernelDriver is strongly recommended if you care about precise visual onset timestamping
-PTB-INFO: or timing. See 'help PsychtoolboxKernelDriver' for instructions.
-
-
-PTB-INFO: OpenGL-Renderer is NVIDIA Corporation :: NVIDIA GeForce 9400M OpenGL Engine :: 2.1 NVIDIA-7.32.12
-PTB-INFO: Renderer has 256 MB of VRAM and a maximum 234 MB of texture memory.
-PTB-INFO: VBL startline = 800 , VBL Endline = -1
-PTB-INFO: Beamposition queries unsupported on this system. Will try to use kernel-level vbl interrupts as fallback.
-PTB-INFO: Measured monitor refresh interval from VBLsync = 0.000000 ms [inf Hz]. (0 valid samples taken, stddev=0.000000 ms.)
-PTB-INFO: Small deviations between reported values are normal and no reason to worry.
-PTB-INFO: All display tests and calibrations disabled. Assuming a refresh interval of 60.000000 Hz. Timing will be inaccurate!
-PTB-INFO: Support for fast OffscreenWindows enabled.
-Starting the ExperimentStarting the ExperimentStarting the ExperimentPTB-INFO: New audio device with handle 0 opened as PortAudio stream:
-PTB-INFO: For 1 channels Playback: Audio subsystem is Core Audio, Audio device name is Built-in Output
-PTB-INFO: Real samplerate 8192.000000 Hz. Input latency 0.000000 msecs, Output latency 12.573242 msecs.
-Scanner timing asyncScanner timing asyncScanner timing async
-
-INFO: PTB's Screen('Flip', 10) command seems to have missed the requested stimulus presentation deadline
-INFO: a total of 11 times out of a total of 62 flips during this session.
-
-INFO: This number is fairly accurate (and indicative of real timing problems in your own code or your system)
-INFO: if you provided requested stimulus onset times with the 'when' argument of Screen('Flip', window [, when]);
-INFO: If you called Screen('Flip', window); without the 'when' argument, this count is more of a ''mild'' indicator
-INFO: of timing behaviour than a hard reliable measurement. Large numbers may indicate problems and should at least
-INFO: deserve your closer attention. Cfe. 'help SyncTrouble', the FAQ section at www.psychtoolbox.org and the
-INFO: examples in the PDF presentation in PsychDocumentation/Psychtoolbox3-Slides.pdf for more info and timing tips.
-
-
-
-WARNING: This session of your experiment was run by you with the setting Screen('Preference', 'SkipSyncTests', 2).
-WARNING: This means that some internal self-tests and calibrations were skipped. Your stimulus presentation timing
-WARNING: may have been wrong. This is fine for development and debugging of your experiment, but for running the real
-WARNING: study, please make sure to set Screen('Preference', 'SkipSyncTests', 0) for maximum accuracy and reliability.
-Error in function FillRect: 	Invalid Window (or Texture) Index provided: It doesn't correspond to an open window or texture.
-Did you close it accidentally via Screen('Close') or Screen('CloseAll') ?
-PTB-INFO: New audio device with handle 1 opened as PortAudio stream:
-PTB-INFO: For 1 channels Playback: Audio subsystem is Core Audio, Audio device name is Built-in Output
-PTB-INFO: Real samplerate 8192.000000 Hz. Input latency 0.000000 msecs, Output latency 12.573242 msecs.
-{Error using <a href="matlab:helpUtils.errorDocCallback('main', '/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/fmri_experiment/main.m', 447)" style="font-weight:bold">main</a> (<a href="matlab: opentoline('/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/fmri_experiment/main.m',447,0)">line 447</a>)
-Usage:
-
-Screen('FillRect', windowPtr [,color] [,rect] )
-} 
-open gamepad
-        numGamepads = Gamepad('GetNumGamepads'); %GetGamepadIndices
-
-numGamePads
-{Undefined function or variable 'numGamePads'.
-} 
-numGamepads
-
-numGamepads =
-
-     0
-
-Gamepad('GetButton',1,1)
-{Error using <a href="matlab:helpUtils.errorDocCallback('Gamepad', '/Applications/Psychtoolbox/PsychHardware/PsychGamepad/Gamepad.m', 303)" style="font-weight:bold">Gamepad</a> (<a href="matlab: opentoline('/Applications/Psychtoolbox/PsychHardware/PsychGamepad/Gamepad.m',303,0)">line 303</a>)
-invalid gamepad index
-} 
