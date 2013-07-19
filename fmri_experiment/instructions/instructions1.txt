@@ -1,24 +1,25 @@
   
-  In the following experiment, your task is to classify
+  In the following experiment, you will see images of rooms
 
-  images of rooms as either bathrooms or a kitchens. Since
+  quickly flash on and off screen. Your task is to indicate
 
-  images will quickly flash on and off screen, you must enter
+  if the image is a Bathroom or Kitchen by pressing a button
 
-  your judgment of room category as soon as you see the 
-
-  image.
+  on the keypad in your hand:
 
 
   
   Press the button under your index finger for "Bathroom"
 
-  or
+  							or
 
   Press the button under your middle finger for "Kitchen" 
 
 
+  Make your decision as soon after you see the room as you can.
+
+
 				
-				Press a button to continue.  
+					Press a button to continue.  
 				
 				

@@ -27,15 +27,17 @@
 %of nulls; fix block structure; fix kitchen stims; make sure results are
 %properly saved, and db sequence iteration works
 %#########################################################################
+%#########################################################################
 clear
 clc
 close all
 
 %--- Subject identification
-params.group_name = 'test';
-params.subject_number = 1;
+params.subject_number = 2;
+%--- Study Settings
+params.group_name = 'oddball_newsubs_3';
 params.experiment_name = 'experiment_two';
-params.scannerBuild = 'off'; %0 = disable scanner controllers
+params.scannerBuild = 'off'; %on turns on scanner input
 params.debug = 'on';
 params.instruction = 'on';
 params.repeat_instructions = 'off';
@@ -48,6 +50,9 @@ params.noiseDuration = .080;
 params.subliminalCueDuration = 0.032;
 params.pairDelay = params.eventTime - (params.stimuliDuration...
     + params.noiseDuration + params.subliminalCueDuration); %delay between pictures
+params.blockInstructionMultiplier = 2; %Show block instructions for this many * eventTime
+params.stimsPerNull = 2; %this many stims are shown sequentially (7s in the dbsequence)
+params.nullTriggerDelay = 2; %add 2 seconds to the second half of the null, to be cut short by a trigger
 params.num_blocks = 6;
 params.pic_size = [400 400];
 params.max_stims_in_group = 300;
@@ -55,21 +60,20 @@ params.crossDuration = params.eventTime; %null event
 params.CrossWidth = 15;
 params.font = 'Helvetica';
 % Set keys
-params.keyboard_device = 5; %could also be 7 when gamepad & trigger are plugged in; check with GetKeyboardIndices
 KbName('UnifyKeyNames');
 params.escapeKey = KbName('ESCAPE');
+params.trigger = KbName('1!');
+params.bathroom_response = KbName('9(');
+params.kitchen_response = KbName('0)');
 switch params.scannerBuild
     case 'on'
         %--- Initialize Gamepad
-        numGamepads = Gamepad('GetNumGamepads'); %GetGamepadIndices
-        
-        params.trigger = 3;
-        ListenChar(2); %enable this
+        params.keyboard_device = 9; %could also be 6 when gamepad & trigger are plugged in; check with GetKeyboardIndices
+        %numGamepads = Gamepad('GetNumGamepads'); %GetGamepadIndices
     case 'off'
-        params.bathroom_response = KbName('9(');
-        params.kitchen_response = KbName('0)');
-        params.trigger = KbName('1!');
+        params.keyboard_device = 5; %could also be 6 when gamepad & trigger are plugged in; check with GetKeyboardIndices
 end
+ListenChar(2); %enable this
 %write console output to "diary.txt"
 switch params.debug
     case 'on'
@@ -104,7 +108,7 @@ end
 directories.out_file_name = fullfile(directories.out_dir,strcat(params.curr_sub,'_results.mat'));
 fprintf('\rRunning DB Sequence #%i\r',params.curr_db_seq)
 %--- Load preprocessed mats (average&neutral points/dbseq)
-loading_name = sprintf('%s_subs_%i',params.group_name,params.subject_number);
+loading_name = sprintf('%s_%i',params.group_name,params.subject_number);
 load(fullfile(directories.middle_dir,strcat(loading_name,'.mat')))%load mid/neutral point mat
 load(fullfile(directories.db_dir,strcat(loading_name,'.mat')))%load db sequence matrix
 
@@ -114,9 +118,10 @@ directories.bathroom_dir = fullfile(directories.pic_dir,'rendered','brs');
 directories.oddball_dir = fullfile(directories.pic_dir,'scrambled','oddballs');
 
 %--- Fit stims to midpoints
-ki_idx = sub_average_kitchen:params.max_stims_in_group;
-br_idx = 1:sub_average_bathroom;
-neutral_idx = (sub_average_bathroom+1):(sub_average_kitchen-1);
+ki_idx = round(params.max_stims_in_group*sub_average_kitchen):params.max_stims_in_group; %high ind is min kitchen index : max iages
+br_idx = 1:round(params.max_stims_in_group*sub_average_bathroom); %low ind is the first image : max bathroom index
+neutral_idx = (round(params.max_stims_in_group*sub_average_bathroom)+1):...
+    (round(params.max_stims_in_group*sub_average_kitchen)-1); %neutral images are the filling
 
 ki_append = @(x) fullfile(directories.kitchen_dir,sprintf('%i.jpg',x));
 br_append = @(x) fullfile(directories.bathroom_dir,sprintf('%i.jpg',x));
@@ -156,8 +161,8 @@ stims.db_seq(this_seq==5) = shuffled_stims; %set average kitchens
 %--- Create index for object/global cuing
 stims.block_idx = Shuffle([zeros(params.num_blocks/2,1);ones(params.num_blocks/2,1)]);
 stims.block_instructions = cell(size(stims.block_idx));
-stims.block_instructions(stims.block_idx==0) = {'Classify rooms by their OBJECTS'};
-stims.block_instructions(stims.block_idx==1) = {'Classify rooms by their SPACE'};
+stims.block_instructions(stims.block_idx==0) = {'Base decisions on rooms'' OBJECTS'};
+stims.block_instructions(stims.block_idx==1) = {'Base decisions on rooms'' SPACIOUSNESS'};
 stims.cue = cell(size(stims.block_idx));
 stims.cue(stims.block_idx==0) = {'OBJECTS'};
 stims.cue(stims.block_idx==1) = {'SPACE'};
@@ -179,8 +184,8 @@ try
     half_note=linspace(0,2,1250);
     F_note = @(x) sin(174.61*pi*x);
     E_note = @(x) sin(164.81*pi*x);
-%     D_note = @(x) sin(146.83*2*pi*x);
-%     A_note = @(x) sin(220*2*pi*x);
+    %     D_note = @(x) sin(146.83*2*pi*x);
+    %     A_note = @(x) sin(220*2*pi*x);
     D_note = @(x) sin(146.83*4*pi*x);
     A_note = @(x) sin(220*4*pi*x);
     %object_sound = [A_note(whole_note),D_note(whole_note),E_note(half_note),F_note(half_note)];
@@ -221,15 +226,14 @@ try
     params.gray= GrayIndex (screenNumber);
     HideCursor;
     [params.w, params.rect] = Screen('OpenWindow', screenNumber, params.gray, [],[], 2);
-    %--- Set up keyboard inputs
-    try
-    KbQueueCreate(params.keyboard_device);
-    catch kb_error
-        fprintf('\rTrying Fallback Keyboard Method\r')
-        KbQueueCreate
+    switch params.scannerBuild
+        case 'off'
+            KbQueueCreate
+            while KbCheck; end % Wait until all keys are released.
+            KbQueueStart;
+        case 'on'
+            %--- do nothing
     end
-    while KbCheck; end % Wait until all keys are released.
-    KbQueueStart(params.keyboard_device);
     ListenChar(2)
     params.centx = params.rect(3)/2;
     params.centy = params.rect(4)/2;
@@ -242,20 +246,33 @@ try
                 Screen('DrawLine', params.w, params.white, params.centx-params.CrossWidth, params.centy, params.centx+params.CrossWidth, params.centy, 10);
                 Screen('DrawLine', params.w, params.white, params.centx, params.centy-params.CrossWidth, params.centx, params.centy+params.CrossWidth, 10);
                 Screen(params.w, 'Flip');
-                while 1
-                    [ pressed, firstPress]=KbQueueCheck(params.keyboard_device);
-                    if pressed
-                        if firstPress(params.trigger),
-                            fprintf('\rStarting the Experiment')
-                            break
-                        elseif firstPress(params.escapeKey),
-                            Screen('CloseAll');
-                            ListenChar(0);
-                            KbQueueRelease(params.keyboard_device);
-                            break;
+                %----
+                switch params.scannerBuild
+                    case 'off'
+                        while 1
+                            [ pressed, firstPress]=KbQueueCheck(params.keyboard_device);
+                            if pressed
+                                if firstPress(params.trigger),
+                                    fprintf('\rStarting the Experiment')
+                                    break
+                                elseif firstPress(params.escapeKey),
+                                    Screen('CloseAll');
+                                    ListenChar(0);
+                                    KbQueueRelease(params.keyboard_device);
+                                    break;
+                                end
+                            end
                         end
-                    end
+                    case 'on'
+                        keyIsDown = 0;
+                        while 1
+                            keyIsDown = KbCheck(-1);
+                            if keyIsDown, %if scanner trigger is detected, begin exp
+                                break
+                            end
+                        end
                 end
+                %----
             otherwise
                 error('fix params.repeat_instructions')
         end
@@ -272,20 +289,45 @@ try
         Screen('Flip', params.w);
         fixationload=tic;
         got_song('play',object_sound);
-        while toc(fixationload)<params.crossDuration*2,
-            [ pressed, firstPress]=KbQueueCheck(params.keyboard_device);
-            if pressed
-                if firstPress(params.trigger),
-                    fprintf('\rScanner timing async')
-                    break
-                elseif firstPress(params.escapeKey),
-                    Screen('CloseAll');
-                    ListenChar(0);
-                    KbQueueRelease(params.keyboard_device);
-                    break;
+        switch params.scannerBuild
+            case 'off'
+                for null_idx = 1:params.blockInstructionMultiplier,
+                    if null_idx == params.blockInstructionMultiplier,
+                        nullDuration = params.crossDuration + params.nullTriggerDelay;
+                    else
+                        nullDuration = params.crossDuration;
+                    end
+                    while toc(fixationload)<nullDuration, %Block instruction duration
+                        [ pressed, firstPress]=KbQueueCheck(params.keyboard_device);
+                        if pressed
+                            if firstPress(params.trigger),
+                                fprintf('\rScanner timing async')
+                                break
+                            elseif firstPress(params.escapeKey),
+                                Screen('CloseAll');
+                                ListenChar(0);
+                                KbQueueRelease(params.keyboard_device);
+                                break;
+                            end
+                        end
+                    end
                 end
-            end
+            case 'on'
+                for null_idx = 1:params.blockInstructionMultiplier, %allow trigger to sync on the final loop
+                    if null_idx == params.blockInstructionMultiplier,
+                        nullDuration = params.crossDuration + params.nullTriggerDelay;
+                    else
+                        nullDuration = params.crossDuration;
+                    end
+                    while toc(fixationload)<nullDuration, %Block instruction duration
+                        [ tkeyIsDown, tseconds, tkeyCode ] = KbCheck(-1);
+                        if tkeyIsDown == 1,
+                            break
+                        end
+                    end
+                end
         end
+        null_count = 1;
         for idx = 1:(numel(stims.db_seq)/params.num_blocks),
             if isempty(stims.db_seq{count}),
                 %--- Show null fixation cross
@@ -297,21 +339,65 @@ try
                 blank_timing(count) = loadTime;
                 crossShowing=params.crossDuration-loadTime;
                 cross=tic;
-                while toc(cross)<crossShowing,
-                    [ pressed, firstPress]=KbQueueCheck(params.keyboard_device);
-                    if pressed
-                        if firstPress(params.trigger),
-                            fprintf('\rScanner timing async')
-                            break
-                        elseif firstPress(params.escapeKey),
-                            Screen('CloseAll');
-                            ListenChar(0);
-                            KbQueueRelease(params.keyboard_device);
-                            break;
+                %---
+                switch params.scannerBuild
+                    case 'off'
+                        if null_count == params.stimsPerNull,
+                            while toc(cross)<(crossShowing+params.nullTriggerDelay), %null event
+                                [ pressed, firstPress]=KbQueueCheck(params.keyboard_device);
+                                if pressed
+                                    if firstPress(params.trigger),
+                                        fprintf('\rScanner timing async')
+                                        break
+                                    elseif firstPress(params.escapeKey),
+                                        Screen('CloseAll');
+                                        ListenChar(0);
+                                        KbQueueRelease(params.keyboard_device);
+                                        break;
+                                    end
+                                end
+                            end
+                            null_count = 1;
+                        else
+                            while toc(cross)<crossShowing, %null event
+                                [ pressed, firstPress]=KbQueueCheck(params.keyboard_device);
+                                if pressed
+                                    if firstPress(params.trigger),
+                                        fprintf('\rScanner timing async')
+                                        break
+                                    elseif firstPress(params.escapeKey),
+                                        Screen('CloseAll');
+                                        ListenChar(0);
+                                        KbQueueRelease(params.keyboard_device);
+                                        break;
+                                    end
+                                end
+                            end
+                            null_count = null_count + 1;
                         end
-                    end
+                    case 'on'
+                        if null_count == params.stimsPerNull,
+                            while toc(cross)<(crossShowing+params.nullTriggerDelay), %null event
+                                [ tkeyIsDown, tseconds, tkeyCode ] = KbCheck(-1);
+                                if tkeyIsDown == 1,
+                                    fprintf('\rScanner timing async')
+                                    break
+                                end
+                            end
+                            null_count = 1;
+                        else
+                            while toc(cross)<crossShowing,
+                                [ tkeyIsDown, tseconds, tkeyCode ] = KbCheck(-1);
+                                if tkeyIsDown == 1,
+                                    fprintf('\rScanner timing async')
+                                    break
+                                end
+                            end
+                            null_count = null_count + 1;
+                        end
                 end
             else
+                null_count = 1; %in case there was only 1 null event, reset the count
                 %--- Draw subliminal cue
                 fixationload=tic;
                 Screen('FillRect', params.w, params.gray);
@@ -361,22 +447,18 @@ try
                 blank_timing(count) = loadTime;
                 myshowing = params.pairDelay - loadTime;
                 thisload = tic;
+                %---
                 switch params.scannerBuild
                     case 'on'
-                        buttons = [Gamepad('GetButton',1,1),Gamepad('GetButton',1,2)];
                         while toc(thisload)<myshowing,
-                            [~, ~, keyCode] = KbCheck(-1);
-                            key_idx = find(keyCode);
-                            if any(buttons),
+                            pressed_button = [Gamepad('GetButton',1,1),Gamepad('GetButton',1,2)];
+                            if sum(pressed_button),
                                 response_timing(count) = toc(thisload);
-                            end
-                            if key_idx == params.trigger,
-                                fprintf('\rScanner timing async')
-                                break
-                            elseif key_idx == params.escapeKey,
-                                Screen('CloseAll');
-                                ListenChar(0);
-                                break
+                                if find(pressed_button) == 1,
+                                    judgments(count) = 1;
+                                elseif find(pressed_button) == 2,
+                                    judgments(count) = 2;
+                                end
                             end
                         end
                     case 'off'
@@ -391,7 +473,7 @@ try
                                     judgments(count) = 2;
                                 elseif firstPress(params.trigger),
                                     fprintf('\rScanner timing async')
-                                    break
+                                    %break
                                 elseif firstPress(params.escapeKey),
                                     Screen('CloseAll');
                                     ListenChar(0);
@@ -401,6 +483,7 @@ try
                             end
                         end
                 end
+                %---
             end
             count = count + 1;
         end
@@ -417,7 +500,7 @@ try
         judgment_matrix(:,params.curr_db_seq) = judgments;
         stim_timing_matrix(:,params.curr_db_seq) = stim_timing;
         noise_timing_matrix(:,params.curr_db_seq) = noise_timing;
-        response_timing_matrix(:,params.curr_db_seq) = response_timing;
+        response_timing_matrix(:,params.curr_db_seq) = response_timing;button
         blank_timing_matrix(:,params.curr_db_seq) = blank_timing;
         block_idx_matrix(:,params.curr_db_seq) = stims.block_idx;
         subliminal_timing_matrix(:,params.curr_db_seq) = subliminal_timing;

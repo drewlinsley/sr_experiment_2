@@ -9,8 +9,6 @@ try
     
     switch params.instruction
         case 'on'
-            
-            
             for i = 1:numel(instructions),
                 
                 Screen('TextFont',params.w,'Helvetica');
@@ -38,38 +36,67 @@ try
                 Screen('FrameRect',params.w, params.white, bbox);
                 Screen('Flip',params.w);
                 
-                while 1
-                    [ pressed, firstPress]=KbQueueCheck(params.keyboard_device);
-                    if pressed
-                        if firstPress(params.trigger),
-                            fprintf('\rStarting the Experiment')
-                            break
-                        elseif firstPress(params.bathroom_response) || firstPress(params.kitchen_response),
-                            if i == numel(instructions),
-                            Screen('DrawLine', params.w, params.white, params.centx-params.CrossWidth, params.centy, params.centx+params.CrossWidth, params.centy, 10);
-                            Screen('DrawLine', params.w, params.white, params.centx, params.centy-params.CrossWidth, params.centx, params.centy+params.CrossWidth, 10);
-                            Screen(params.w, 'Flip');
-                            else
-                               break;
+                switch params.scannerBuild
+                    case 'off'
+                        fprintf('there')
+                        while 1
+                            [ pressed, firstPress]=KbQueueCheck(params.keyboard_device);
+                            if pressed
+                                if firstPress(params.trigger),
+                                    fprintf('\rStarting the Experiment')
+                                    break
+                                elseif firstPress(params.bathroom_response) || firstPress(params.kitchen_response),
+                                    break;
+                                elseif firstPress(params.escapeKey),
+                                    Screen('CloseAll');
+                                    ListenChar(0);
+                                    KbQueueRelease(params.keyboard_device);
+                                    break;
+                                end
                             end
-                        elseif firstPress(params.escapeKey),
-                            Screen('CloseAll');
-                            ListenChar(0);
-                            KbQueueRelease(params.keyboard_device);
-                            break;
                         end
+                    case 'on'
+                        joy_press = 0;
+                        while joy_press == 0,
+                            pressed_button = [Gamepad('GetButton',1,1), Gamepad('GetButton',1,2)];
+                            if sum(pressed_button),
+                                joy_press = 1;
+                            end
+                        end
+                    otherwise
+                        ListenChar(0);
+                        Screen('CloseAll');
+                        error('Set scannerbuild to ''on'' or ''off''')
+                end
+            end
+    end
+    Screen('DrawLine', params.w, params.white, params.centx-params.CrossWidth, params.centy, params.centx+params.CrossWidth, params.centy, 10);
+    Screen('DrawLine', params.w, params.white, params.centx, params.centy-params.CrossWidth, params.centx, params.centy+params.CrossWidth, 10);
+    Screen(params.w, 'Flip');
+    switch params.scannerBuild
+        case 'off'
+            fprintf('here')
+            while 1
+                [ pressed, firstPress]=KbQueueCheck(params.keyboard_device);
+                if pressed
+                    if firstPress(params.trigger),
+                        fprintf('\rStarting the Experiment')
+                        break
                     end
                 end
-                
-                
             end
-            
-            
-            
-            %nothing....
-            
+        case 'on'
+            while 1
+                keyIsDown = KbCheck(-1);
+                %pressed_button = [Gamepad('GetButton',1,1), Gamepad('GetButton',1,2)];
+                if keyIsDown, %if scanner trigger is detected, begin exp
+                    break
+                end
+                %if sum(pressed_button) > 0,
+                %    break;
+                %end
+            end
     end
-    
 catch status
     Screen('CloseAll');
     save('initialize_error','status')

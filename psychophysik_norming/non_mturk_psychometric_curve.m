@@ -4,27 +4,33 @@ clc
 %%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%
-myfile = 'oddball_newsubs_2.csv';
+myfile = 'oddball_newsubs_3.csv';
 study_name = 'BC_scene_classification';%pilot_classification or pilot_classification_with_training
 produce_fmri_fits = 'on';
 generate_dbs_for_each = 'on';
+%--- After running with the above settings on, you can turn the below
+%settings on -- of course, process_dbs only works after executing their db
+%scripts
+dbs_to_execute = [2,4,5,6,9,10,12,13,16,17,18];
 execute_dbs_for_each = 'off';
 process_dbs = 'off';
 %%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%
 min_rooms_per_grouping = 50; %average bathroom/kitchen/neutral groupings must have this many rooms in them
-low_group = 0.335; %average bathrooms start point
+low_group = 0.333; %average bathrooms start point
 mid_group = 0.5; %neutral point
-high_group = 0.715; %average kitchens start point
-search_idx = 0.01; %if min_rooms_per_grouping is violated, this will be iteratively used to search for better groupings
-max_search_iterations = 1000;
+high_group = 0.667; %average kitchens start point
+opts = statset('MaxIter',1000); %iterations for curve fit
+%-- plotting params
+x_plots = 3;
+y_plots = 4;
 %%%%%%%%%%%%%%%%%%%
 %these parameters must be changed for each study
 home_dir = '/Users/drewlinsley/Documents/Dropbox/SR_grant_experiments/Experiment_2/psychophysik_norming';
 in_dir = fullfile(home_dir,'psychophysik_datasheets');
 stims_to_toss = 20; %if no training is used, toss at least 1; otherwise toss the # of training stims
-group_width = 60;
+group_width = 50;
 total_images = 300;
 toss_header = 5;
 toss_footer = 6;%OS/Browser/Xres/YRes/Date/Time
@@ -51,12 +57,12 @@ settings.distfile = fullfile(home_dir,'exp_2_distances.txt');
 settings.processed_dbs_dir = fullfile(home_dir,'processed_dbs');
 %%%%%%%%%%%%%%%%%%%
 %these are optional
-preprocess = 'rt_trim';%rt_trim (adaptive) or fixed_rt
-rt_modifier = 3; %for adaptive RT
+preprocess = 'rt_log_trim';%rt_trim (adaptive) or fixed_rt
+rt_modifier = 4; %for adaptive RT
 rt_floor = 0.2; %for fixed RT
-rt_ceiling = 2.0; %for fixed RT
+rt_ceiling = 5.0; %for fixed RT
 feature_selection = '';
-timing_trim_param = 3; %#SDs
+timing_trim_param = 4; %#SDs
 %%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%l
 fid = fopen(myfile);
@@ -152,6 +158,12 @@ switch preprocess
         rt_sd = nanstd(reshape(rt,numel(rt),1));
         rt_mean = nanmean(nanmean(rt,2));
         data(rt<=(rt_mean-(rt_sd*rt_modifier))|rt>=(rt_mean+(rt_sd*rt_modifier)))=NaN;
+        fprintf('\rTrimmed Data for RT excursions')
+    case 'rt_log_trim'
+        l_rt = log(rt);
+        rt_sd = nanstd(reshape(l_rt,numel(rt),1));
+        rt_mean = nanmean(nanmean(l_rt,2));
+        data(l_rt<=(rt_mean-(rt_sd*rt_modifier))|l_rt>=(rt_mean+(rt_sd*rt_modifier)))=NaN;
         fprintf('\rTrimmed Data for RT excursions')
     case 'fixed_rt'
         data(rt<=(rt_floor)|rt>=(rt_ceiling))=NaN;
@@ -276,6 +288,15 @@ end
 %---Toss any dudes who show 0 variability... didn't understand the task
 subs_tossed = sum(std(prop_kitchen_mat)==0);
 prop_kitchen_mat = prop_kitchen_mat(:,(std(prop_kitchen_mat)>0));
+%---Flip the props for any dude who reversed buttons (i.e. a negative
+%slope)
+for sub_idx = 1:numel(prop_kitchen_mat(1,:)),
+    fit = regstats(prop_kitchen_mat(:,1),(1:total_images/group_width)','linear',{'tstat','beta'});
+    if fit.tstat.pval(2) < 0.05,
+        prop_kitchen_mat(:,sub_idx) = prop_kitchen_mat(numel(prop_kitchen_mat(:,sub_idx)):-1:1,sub_idx);
+        fprintf('\r\rFlipped %s\r',sub_emails{sub_idx})
+    end
+end
 
 %%%%%%%
 %proportion abs kitchens
@@ -285,7 +306,7 @@ for aa = 1:numel(prop_kitchen_mat(1,:)),
         figure,
         hold on
     end
-    subplot(3,4,counter)
+    subplot(x_plots,y_plots,counter)
     %[curve goodness] = fit(abs(intensity_ind(:,aa)),prop_kitchen_mat(:,aa),'cubicspline');
     %plot(curve,abs(intensity_ind(:,aa)),(prop_kitchen_mat(:,aa)),'.')
     plot(intensity_ind(:,aa),(prop_kitchen_mat(:,aa)),'o')
@@ -296,7 +317,12 @@ for aa = 1:numel(prop_kitchen_mat(1,:)),
     title({sprintf('S%i Training accuracy = %i%%',aa,training_accuracy(aa)),sprintf('%s',sub_emails{aa})})
     axis([-0.1 1.1 -0.1 1.1])
     counter = counter + 1;
-    if counter > 10,
+    if counter > x_plots*y_plots,
+        fig_title = sprintf('Subject Performance -- %i training trials and %i Subjects tossed',stims_to_toss,subs_tossed);
+        annotation('textbox', [0 0.9 1 0.1], ...
+            'String', fig_title, ...
+            'EdgeColor', 'none', ...
+            'HorizontalAlignment', 'center');
         counter = 1;
     end
 end
@@ -313,70 +339,70 @@ my_intensity_ind = intensity_ind + 0.001; %for curve fitting
 sub_mids = nan(numel(prop_kitchen_mat(1,:)),1);
 sub_average_kitchens = nan(numel(prop_kitchen_mat(1,:)),1);
 sub_average_bathrooms = nan(numel(prop_kitchen_mat(1,:)),1);
+f = @(p,x) p(1) + p(2) ./ (1 + exp(-(x-p(3))/p(4)));
+min_prop = (min_rooms_per_grouping*3)/total_images; %minimum proportion spanned by sigmoidal curve; if this is not met, subject is rejected
 for aa = 1:numel(prop_kitchen_mat(1,:)),
     if counter == 1,
         figure,
         hold on
     end
-    subplot(3,4,counter)
-    %---
-    f=fit(my_intensity_ind(:,aa), prop_kitchen_mat(:,aa), 'c*a*b*x^(b-1)*exp(-a*x^b)', 'StartPoint', [0.01, 2, 5] );
-    fw=fit(my_intensity_ind(:,aa), prop_kitchen_mat(:,aa)./f.c, 'Weibull', ...
-        'StartPoint', [f.a, f.b]);
-    weib_me = @(x) (fw.a*fw.b*x^(f.b-1)*exp(-fw.a*x^fw.b))*f.c; %unscale data
-    
-    plot(my_intensity_ind(:,aa),(prop_kitchen_mat(:,aa)),'o')
+    subplot(x_plots,y_plots,counter)
     hold on
-    new_x = linspace(min(my_intensity_ind(:,aa)),max(my_intensity_ind(:,aa)),300);
-    my_fit_x = arrayfun(weib_me,new_x)';
-    my_fit_x = (my_fit_x-min(my_fit_x))/(max(my_fit_x)-min(my_fit_x)); %rescale fit line to 0->1
+    %--- line fitting
+    plot(my_intensity_ind(:,aa),prop_kitchen_mat(:,aa),'bo')
+    p = nlinfit(my_intensity_ind(:,aa),prop_kitchen_mat(:,aa),f,[0 20/100 50/100 5/100],opts);
+    new_x = linspace(0,1,total_images*10)';
+    my_fit_x = f(p,new_x);
+    num_unique = numel(unique(my_fit_x));
+    if num_unique==1,
+        while num_unique == 1,
+            current_start_point = [0 20/100 50/100 5/100] .* rand;
+            p = nlinfit(my_intensity_ind(:,aa),prop_kitchen_mat(:,aa),f,current_start_point,opts);
+            my_fit_x = f(p,new_x);
+            num_unique = unique(my_fit_x);
+        end
+    end
     plot(new_x,my_fit_x,'r');
     %--- average bathroom
-    t_my_fit_x = my_fit_x;
-    low_ind = low_group;
-    test_group = numel(t_my_fit_x(t_my_fit_x<low_ind));
-    ind_count = 1;
-    while test_group < min_rooms_per_grouping,
-        test_group = numel(t_my_fit_x(t_my_fit_x<=low_ind));
-        low_ind = low_ind + search_idx;
-        ind_count = ind_count + 1;
-        if ind_count > max_search_iterations,
-            break
+    if range(my_fit_x) < min_prop && numel(unique(my_fit_x)) < (min_rooms_per_grouping*3) || my_fit_x(1) > my_fit_x(numel(my_fit_x)),
+        text(.02,.5,'NOT ENOUGH')
+        text(.02,.3,'MARGIN')
+    else %we're good to go... split margin into three equal groupings; use a linear line to divy things up
+        
+        lin_fit = linspace(min(my_fit_x),max(my_fit_x),total_images);
+        %--- low group
+        low_ind = lin_fit(1:total_images/3);
+        sub_average_bathrooms(aa) = max(low_ind);
+        low_ind = my_fit_x(my_fit_x<=sub_average_bathrooms(aa));
+        %--- high group
+        high_ind = lin_fit(total_images/3*2+1:total_images);
+        sub_average_kitchens(aa) = min(high_ind);
+        high_ind = my_fit_x(my_fit_x>sub_average_kitchens(aa));
+        %--- mid group
+        mid_ind = lin_fit(total_images/3+1:total_images/3*2);
+        mid_ind = my_fit_x(my_fit_x>max(low_ind) & my_fit_x<=max(mid_ind));
+        if isempty(mid_ind),
+            %--- this is a curve where there's a dramatic
+            %difference between low and high...
+            mid_ind = lin_fit(lin_fit>max(low_ind) & lin_fit<min(high_ind));
+            sub_mids(aa) = mid_ind(round(numel(mid_ind)/2));
+            plot(new_x(ismember(my_fit_x,max(low_ind))>0),sub_mids(aa),'ks--')
+        else
+            %--- Midpoint
+            sub_mids(aa) = mid_ind(round(numel(mid_ind)/2));
+            plot(new_x(ismember(my_fit_x,sub_mids(aa))>0),sub_mids(aa),'ks--')
         end
+        plot(new_x(ismember(my_fit_x,low_ind)>0),low_ind,'-*','Color',[1 .2 0])
+        plot(new_x(ismember(my_fit_x,high_ind)>0),high_ind,'-*','Color',[0 .5 1])
     end
-    t_my_fit_x(t_my_fit_x<low_ind)=NaN;
-    [~, sub_average_bathrooms(aa)] = min(t_my_fit_x);
-    %--- average kitchen
-    t_my_fit_x = my_fit_x;
-    high_ind = high_group;
-    test_group = numel(t_my_fit_x(t_my_fit_x>high_ind));
-    ind_count = 1;
-    while test_group < min_rooms_per_grouping,
-        test_group = numel(t_my_fit_x(t_my_fit_x>high_ind));
-        high_ind = high_ind + search_idx;
-        ind_count = ind_count + 1;
-        if ind_count > max_search_iterations,
-            break
-        end
-    end
-    t_my_fit_x(t_my_fit_x<high_ind)=NaN;%range from 0 - .335
-    [~, sub_average_kitchens(aa)] = min(t_my_fit_x);
-    %--- neutral point
-    sub_mids(aa) = mean([sub_average_bathrooms(aa),sub_average_kitchens(aa)]);
-    if (sub_average_kitchens(aa)-sub_average_bathrooms(aa))<min_rooms_per_grouping
-        text(prctile(new_x,50),prctile(my_fit_x,50),'NOT ENOUGH MARGIN')
-    end
-    plot(new_x(round(sub_mids(aa))),my_fit_x(round(sub_mids(aa))),'ks--')
-    plot(new_x(1:sub_average_bathrooms(aa)),my_fit_x(1:sub_average_bathrooms(aa)),'g-*')
-    plot(new_x(sub_average_kitchens(aa):numel(new_x)),my_fit_x(sub_average_kitchens(aa):numel(my_fit_x)),'m-*')
     %---
     legend('off')
     xlabel('Proportion of Kitchen Spaciousness');
     ylabel('Proportion Kitchen Judgments');
-    title(sprintf('Subject %i\rMidpoint = %i',aa,sub_mids(aa)))
+    title(sprintf('Subject %i\rMidpoint = %.2f',aa,sub_mids(aa)))
     axis([-0.1 1.1 -0.1 1.1])
     counter = counter + 1;
-    if counter > 10,
+    if counter > x_plots*y_plots,
         counter = 1;
     end
     
@@ -402,35 +428,35 @@ axis([-0.1 1.1 -0.1 1.1])
 xlabel('Proportion of Kitchen Spaciousness');
 ylabel('Proportion Kitchen Judgments');
 title({'Average Proportion of kitchen judgments across subjects','Black = mean; red = 90% CI'})
-fprintf('\r\r\r***************\r\r\rFinished Analyzing Data\r\r\r***************')
+fprintf('\r\r\r***************\r\r\rFinished Analyzing Data')
 
 %---
 switch produce_fmri_fits
     case 'on'
-        fprintf('\r\r\r***************\r\r\rStoring Midpoints\r\r\r***************')
+        fprintf('\r\r\r***************\r\r\rStoring Midpoints')
         out_dir = fullfile(home_dir,'fmri_midpoints');
         if ~exist(out_dir,'dir'),
             mkdir(out_dir)
         end
         my_trim_file = regexp(myfile,'\.','split');
         my_trim_file = my_trim_file{1};
-        for s_idx = 1:numel(prop_kitchen_mat(1,:)),
+        for s_idx = 1:numel(dbs_to_execute),
             sub_mid = sub_mids(aa);
             sub_average_kitchen = sub_average_kitchens(aa);
             sub_average_bathroom = sub_average_bathrooms(aa);
-            save(fullfile(out_dir,sprintf('%s_%i.mat',my_trim_file,s_idx)),'sub_mid',...
+            save(fullfile(out_dir,sprintf('%s_%i.mat',my_trim_file,dbs_to_execute(s_idx))),'sub_mid',...
                 'sub_average_kitchen','sub_average_bathroom')
         end
 end
 switch generate_dbs_for_each
     case 'on'
-        fprintf('\r\r\r***************\r\r\rGenerating DBseqs for each sub\r\r\r***************')
+        fprintf('\r\r\r***************\r\r\rGenerating DBseqs for each sub')
         my_trim_file = regexp(myfile,'\.','split');
         my_trim_file = my_trim_file{1};
-        for s_idx = 1:numel(prop_kitchen_mat(1,:)), %subject loop
+        for s_idx = 1:numel(dbs_to_execute), %subject loop
             for r_idx = 1:settings.num_runs, %run loop -- change block settings with settings.seshlimit
-                settings.out_name = sprintf('%s_%i_%i',my_trim_file,s_idx,r_idx);
-                settings.out_dir = fullfile(home_dir,'db_sequences',sprintf('%s_%i',my_trim_file,s_idx));
+                settings.out_name = sprintf('%s_%i_%i',my_trim_file,dbs_to_execute(s_idx),r_idx);
+                settings.out_dir = fullfile(home_dir,'db_sequences',sprintf('%s_%i',my_trim_file,dbs_to_execute(s_idx)));
                 script_file = strcat(settings.out_name,'.sh');
                 create_db_script(script_file,settings);
             end
@@ -438,10 +464,10 @@ switch generate_dbs_for_each
 end
 switch execute_dbs_for_each
     case 'on'
-        fprintf('\r\r\r***************\r\r\rExecuting DB scripts for each sub\r\r\r***************')
-        for s_idx = 1:numel(prop_kitchen_mat(1,:)), %subject loop
+        fprintf('\r\r\r***************\r\r\rExecuting DB scripts for each sub')
+        for s_idx = 1:numel(dbs_to_execute), %subject loop
             for r_idx = 1:settings.num_runs, %run loop -- change block settings with settings.seshlimit
-                script_file = sprintf('%s_%i_%i.sh',my_trim_file,s_idx,r_idx);
+                script_file = sprintf('%s_%i_%i.sh',my_trim_file,dbs_to_execute(s_idx),r_idx);
                 unix(sprintf('nice -n %i sh %s &',settings.nice,fullfile(settings.script_dir,script_file)));
             end
         end
@@ -451,12 +477,14 @@ end
 
 switch process_dbs
     case 'on'
-        fprintf('\r\r\r***************\r\r\rProcessing DBs\r\r\r***************')
+        fprintf('\r\r\r***************\r\r\rProcessing DBs')
         my_trim_file = regexp(myfile,'\.','split');
         my_trim_file = my_trim_file{1};
-        for s_idx = 1:numel(prop_kitchen_mat(1,:)),
-            settings.out_name = sprintf('%s_%i',my_trim_file,s_idx);
+        for s_idx = 1:numel(dbs_to_execute),
+            settings.out_name = sprintf('%s_%i',my_trim_file,dbs_to_execute(s_idx));
             settings.out_dir = fullfile(home_dir,'db_sequences',settings.out_name);
+            %%
             process_db_scripts(settings);
+            %%
         end
 end

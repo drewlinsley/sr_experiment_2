@@ -1,21 +1,24 @@
   
-  This part of the experiment is split up into six sessions.
+  Throughout the experiment, you will be told to make your 
 
-  Preceding each session, you will receive an instruction of
+  decisions of room identity based on either the objects
 
-  either:
+  in the room or the spaciousness of the room. The
 
-			  Classify rooms by their OBJECTS
+  instructions will look like either: 
+
+
+			  Base decisions on rooms' OBJECTS
 
 			  or
 
-			  Classify rooms by their SPACE
+			  Base decisions on rooms' SPACIOUSNESS
 			
 
-  You must keep a session's instruction in mind while you make 
+  Make sure you do your best to base your decisions of room
+
+  identity SOLELY on the given cue.
  
-  your classifications. 
 
 
-
-				Press a button to continue.  
+					Press a button to continue.  
